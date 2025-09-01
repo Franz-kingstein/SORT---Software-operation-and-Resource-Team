@@ -1,0 +1,220 @@
+/* Generated CSS Styles */
+/* Auto-generated on 2025-09-01 22:12:14 */
+
+/* Base Styles */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --border-radius: 0.375rem;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --transition: all 0.15s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.5;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: var(--box-shadow);
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    outline: 0;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    color: white;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    color: white;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-success {
+    color: white;
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.btn-danger {
+    color: white;
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {{
+    .container {{
+        padding: 0 10px;
+    }}
+    
+    .row {{
+        margin: 0 -10px;
+    }}
+    
+    .col {{
+        padding: 0 10px;
+        flex: 100%;
+    }}
+    
+    .navbar-nav {{
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 1rem;
+    }}
+    
+    .card-body {{
+        padding: 1rem;
+    }}
+    
+    .btn {{
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }}
+}}
+
+@media (max-width: 576px) {{
+    .container {{
+        padding: 0 5px;
+    }}
+    
+    .card-body {{
+        padding: 0.75rem;
+    }}
+    
+    .form-control {{
+        padding: 0.5rem;
+    }}
+}}
