@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+/* Quantum Font Imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Quantum Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-weight: 500;
+}
+
+/* Quantum Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+}
+
+/* Quantum Color Classes */
+.text-quantum-blue { color: #00D4FF; }
+.text-quantum-cyan { color: #00FFFF; }
+.text-quantum-purple { color: #8B5CF6; }
+.text-quantum-pink { color: #EC4899; }
+.text-quantum-green { color: #10B981; }
+.text-quantum-emerald { color: #059669; }
+.text-quantum-yellow { color: #F59E0B; }
+.text-quantum-orange { color: #EA580C; }
+.text-quantum-red { color: #EF4444; }
+
+.bg-quantum-blue { background-color: #00D4FF; }
+.bg-quantum-cyan { background-color: #00FFFF; }
+.bg-quantum-purple { background-color: #8B5CF6; }
+.bg-quantum-pink { background-color: #EC4899; }
+.bg-quantum-green { background-color: #10B981; }
+.bg-quantum-emerald { background-color: #059669; }
+.bg-quantum-yellow { background-color: #F59E0B; }
+.bg-quantum-orange { background-color: #EA580C; }
+.bg-quantum-red { background-color: #EF4444; }
+
+/* Quantum Selection */
+::selection {
+  background-color: rgba(0, 212, 255, 0.3);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Quantum Focus */
+:focus {
+  outline: 2px solid rgba(0, 212, 255, 0.6);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.2);
+}
+
+/* Quantum Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00D4FF, #8B5CF6);
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00FFFF, #EC4899);
+}
+
+/* Quantum Button Reset */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Quantum Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Quantum High Contrast */
+@media (prefers-contrast: high) {
+  .quantum-panel,
+  .quantum-glass {
+    background: rgba(0, 0, 0, 0.98);
+    border: 3px solid #ffffff;
+  }
+  
+  .text-quantum-blue,
+  .text-quantum-cyan,
+  .text-quantum-purple,
+  .text-quantum-pink,
+  .text-quantum-green,
+  .text-quantum-emerald,
+  .text-quantum-yellow,
+  .text-quantum-orange {
+    color: #ffffff;
+  }
+}
+
+/* Quantum Mobile Optimizations */
+@media (max-width: 768px) {
+  .quantum-panel {
+    padding: 20px;
+    border-radius: 16px;
+  }
+  
+  .quantum-textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+/* Quantum Print Styles */
+@media print {
+  .quantum-panel {
+    background: white;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .quantum-glass {
+    background: white;
+    border: 1px solid black;
+  }
+}
