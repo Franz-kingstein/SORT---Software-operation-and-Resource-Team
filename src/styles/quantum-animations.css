@@ -568,23 +568,19 @@
 }
 
 /* Text Effects */
+
 .quantum-text-glow {
-  text-shadow: 
-    0 0 10px currentColor,
-    0 0 20px currentColor,
-    0 0 30px currentColor;
+  text-shadow: none;
 }
+
 
 .quantum-number-glow {
-  text-shadow: 
-    0 0 10px currentColor,
-    0 0 20px currentColor,
-    0 0 30px currentColor,
-    0 0 40px currentColor;
+  text-shadow: none;
 }
 
+
 .quantum-glow {
-  filter: drop-shadow(0 0 8px currentColor);
+  filter: none;
 }
 
 .quantum-pulse {

@@ -135,7 +135,7 @@ const TaskProgress: React.FC = () => {
       </div>
 
       {/* Tasks Timeline */}
-      <div className="space-y-6 max-h-[500px] overflow-y-auto quantum-scroll">
+  <div className="space-y-6 overflow-y-auto quantum-scroll">
         {tasks.map((task, index) => {
           const complexityTheme = getComplexityTheme(task.quantumComplexity);
           const statusTheme = getStatusTheme(task.status);

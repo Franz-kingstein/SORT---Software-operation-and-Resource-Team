@@ -59,14 +59,14 @@ const OperationsDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Operations Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8 mb-8">
-          <div className="xl:col-span-3">
-            <SystemHealth metrics={systemMetrics} />
-          </div>
-          <div>
-            <MetricsPanel metrics={systemMetrics} />
-          </div>
+        {/* System Health */}
+        <div className="mb-8">
+          <SystemHealth metrics={systemMetrics} />
+        </div>
+
+        {/* Quantum Analytics (Horizontal, full width) */}
+        <div className="mb-8">
+          <MetricsPanel metrics={systemMetrics} />
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
