@@ -3,7 +3,16 @@
 Frontend Coder Agent (Coder2)
 =============================
 
-This agent handles frontend development tasks including:
+This agen        # Enhanced capabilities when AI is available
+        if AI_INTEGRATION_AVAILABLE:
+            print("🔧 Frontend Agent: Enhanced AI integration enabled")
+            self.enhanced_mode = True
+        else:
+            print("💻 Frontend Agent: Running in standard mode")
+            self.enhanced_mode = False
+        
+        # Initialize ai_tool later when needed (lazy initialization)
+        self._ai_tool = Nonees frontend development tasks including:
 - User interface design and implementation
 - Client-side functionality
 - Form creation and validation
@@ -23,20 +32,41 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
 
-# Enhanced AI integration (optional imports)
+# Import Qwen AI service
 try:
-    from langchain.tools import BaseTool
-    from langchain.schema import BaseMessage
-    from crewai.tools import BaseTool as CrewBaseTool
-    AI_INTEGRATION_AVAILABLE = True
+    from .qwen_ai_service import get_qwen_service, AIResponse
+    QWEN_AVAILABLE = True
 except ImportError:
-    # Fallback classes for when LangChain/CrewAI not available
-    class BaseTool:
-        pass
-    class CrewBaseTool:
-        pass
-    AI_INTEGRATION_AVAILABLE = False
-    print("💡 Running in basic mode. Install langchain and crewai for enhanced AI features.")
+    try:
+        from qwen_ai_service import get_qwen_service, AIResponse
+        QWEN_AVAILABLE = True
+    except ImportError:
+        QWEN_AVAILABLE = False
+        print("⚠️ Qwen AI not available for Frontend Agent")
+
+# Enhanced AI integration (optional imports) - Temporarily disabled
+# TODO: Fix langchain/crewai import hanging issue
+AI_INTEGRATION_AVAILABLE = False
+class BaseTool:
+    pass
+class CrewBaseTool:
+    pass
+print("💡 Running in basic mode. LangChain/CrewAI temporarily disabled.")
+
+# Uncomment when import issues are resolved:
+# try:
+#     from langchain.tools import BaseTool
+#     from langchain.schema import BaseMessage
+#     from crewai.tools import BaseTool as CrewBaseTool
+#     AI_INTEGRATION_AVAILABLE = True
+# except ImportError:
+#     # Fallback classes for when LangChain/CrewAI not available
+#     class BaseTool:
+#         pass
+#     class CrewBaseTool:
+#         pass
+#     AI_INTEGRATION_AVAILABLE = False
+#     print("💡 Running in basic mode. Install langchain and crewai for enhanced AI features.")
 
 
 @dataclass
@@ -67,15 +97,24 @@ class FrontendCoderAgent:
         self.supported_frameworks = ["vanilla", "react", "vue", "bootstrap"]
         self.supported_styles = ["css", "scss", "tailwind"]
         
-        # Initialize AI integration tool
-        self.ai_tool = FrontendGeneratorTool(agent_instance=self)
+        # Initialize Qwen AI service
+        if QWEN_AVAILABLE:
+            self.qwen_service = get_qwen_service()
+            self.enhanced_mode = True
+            self.ai_enhanced = True
+            print("🤖 Frontend Agent: Enhanced with Qwen AI")
+        else:
+            self.qwen_service = None
+            self.enhanced_mode = False
+            self.ai_enhanced = False
+            print("💻 Frontend Agent: Running in standard mode")
         
         # Enhanced capabilities when AI is available
         if AI_INTEGRATION_AVAILABLE:
-            print("🤖 Frontend Agent: Enhanced AI integration enabled")
+            print("🔧 Frontend Agent: Enhanced AI integration enabled")
             self.enhanced_mode = True
         else:
-            print("💻 Frontend Agent: Running in standard mode")
+            print("� Frontend Agent: Running in standard mode")
             self.enhanced_mode = False
     
     def execute_task(self, task_assignment: Dict[str, str]) -> ExecutionResult:
@@ -155,9 +194,28 @@ class FrontendCoderAgent:
     
     def generate_html_template(self, requirements: Dict[str, Any]) -> str:
         """
-        Generate HTML template based on requirements.
+        Generate HTML template based on requirements using Qwen AI.
+        """
+        if self.ai_enhanced and self.qwen_service:
+            # Use Qwen AI for enhanced HTML generation
+            task_desc = f"Create a responsive HTML template with the following requirements: {requirements}"
+            ai_response = self.qwen_service.generate_frontend_code(
+                task_desc,
+                framework="vanilla",
+                requirements=requirements
+            )
+            
+            if ai_response.success:
+                return ai_response.content
+            else:
+                print(f"⚠️ AI generation failed, using template: {ai_response.error}")
         
-        EXAMPLE: Template-based code generation (No LLM)
+        # Fallback to template-based generation
+        return self._generate_html_template_fallback(requirements)
+    
+    def _generate_html_template_fallback(self, requirements: Dict[str, Any]) -> str:
+        """
+        Generate HTML template fallback using basic templates.
         """
         # Extract requirements
         title = requirements.get('title', 'My App')
@@ -821,15 +879,18 @@ body {{
     
     def get_ai_tool(self):
         """Get the AI tool for LangChain/CrewAI integration."""
-        return self.ai_tool
+        if self._ai_tool is None:
+            self._ai_tool = FrontendGeneratorTool(self)
+        return self._ai_tool
     
     def process_with_ai(self, task_description: str, framework: str = "vanilla") -> str:
         """Process task using AI integration if available."""
+        ai_tool = self.get_ai_tool()
         if self.enhanced_mode:
-            return self.ai_tool._run(task_description, framework)
+            return ai_tool._run(task_description, framework)
         else:
             # Fallback to standard processing
-            requirements = self.ai_tool._parse_requirements(task_description, framework)
+            requirements = ai_tool._parse_requirements(task_description, framework)
             return f"Standard processing: {requirements}"
     
     def get_capabilities(self) -> Dict[str, Any]:
@@ -846,15 +907,14 @@ body {{
         }
 
 
-class FrontendGeneratorTool(BaseTool if AI_INTEGRATION_AVAILABLE else object):
-    """LangChain/CrewAI tool for frontend code generation."""
+class FrontendGeneratorTool(object):
+    """Tool for frontend code generation (simplified for basic mode)."""
     
     name: str = "Frontend Code Generator"
     description: str = "Generate frontend code including HTML, CSS, JavaScript, and React/Vue components"
     
     def __init__(self, agent_instance=None):
-        if AI_INTEGRATION_AVAILABLE:
-            super().__init__()
+        # Simplified initialization for basic mode
         self.agent = agent_instance
     
     def _run(self, task_description: str, framework: str = "vanilla") -> str:
