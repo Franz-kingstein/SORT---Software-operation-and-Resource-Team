@@ -1,0 +1,10 @@
+2025-10-29 16:18:11 - agentic_framework - INFO - Starting Agentic Framework
+2025-10-29 16:18:11 - agentic_framework - INFO - Generated repository name: coding-sim-flask-app-4cff4e
+2025-10-29 16:18:11 - agentic_framework - INFO - Creating crew with 3 agents and 3 tasks
+2025-10-29 16:18:11 - agentic_framework - INFO - Starting crew execution
+2025-10-29 16:18:12 - agentic_framework - ERROR - Crew execution failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2025-10-29 16:18:26 - agentic_framework - INFO - Starting Agentic Framework
+2025-10-29 16:18:26 - agentic_framework - INFO - Generated repository name: coding-sim-flask-app-b1bc00
+2025-10-29 16:18:26 - agentic_framework - INFO - Creating crew with 3 agents and 3 tasks
+2025-10-29 16:18:26 - agentic_framework - INFO - Starting crew execution
+2025-10-29 16:18:28 - agentic_framework - ERROR - Crew execution failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}

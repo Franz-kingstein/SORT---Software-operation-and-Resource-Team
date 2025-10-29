@@ -1,0 +1,90 @@
+2025-10-29 23:57:19 - agent_github_manager - INFO - Calling function: create_github_repo
+2025-10-29 23:57:19 - agent_github_manager - INFO - Creating GitHub repository: coding-sim-flask-app-da6caa
+2025-10-29 23:57:20 - agent_github_manager - INFO - Repository created: https://github.com/Franz-kingstein/coding-sim-flask-app-da6caa
+2025-10-29 23:57:20 - agent_github_manager - INFO - Cloning repository locally
+2025-10-29 23:57:21 - agent_github_manager - INFO - Creating main.py file
+2025-10-29 23:57:21 - agent_github_manager - INFO - Parsing generated code into multiple files
+2025-10-29 23:57:21 - agent_github_manager - INFO - No structured files found, creating default files
+2025-10-29 23:57:21 - agent_github_manager - INFO - Creating netlify.toml configuration
+2025-10-29 23:57:21 - agent_github_manager - INFO - Creating requirements.txt
+2025-10-29 23:57:21 - agent_github_manager - INFO - Creating README.md
+2025-10-29 23:57:21 - agent_github_manager - INFO - Committing and pushing code
+2025-10-29 23:57:23 - agent_github_manager - INFO - Code successfully pushed to: https://github.com/Franz-kingstein/coding-sim-flask-app-da6caa
+2025-10-29 23:58:58 - agent_github_manager - INFO - Calling function: create_github_repo
+2025-10-29 23:58:58 - agent_github_manager - INFO - Creating GitHub repository: coding-sim-flask-app-b0375d
+2025-10-29 23:58:59 - agent_github_manager - INFO - Repository created: https://github.com/Franz-kingstein/coding-sim-flask-app-b0375d
+2025-10-29 23:58:59 - agent_github_manager - INFO - Cloning repository locally
+2025-10-29 23:59:00 - agent_github_manager - INFO - Creating main.py file
+2025-10-29 23:59:00 - agent_github_manager - INFO - Parsing generated code into multiple files
+2025-10-29 23:59:00 - agent_github_manager - INFO - No structured files found, creating default files
+2025-10-29 23:59:00 - agent_github_manager - INFO - Creating netlify.toml configuration
+2025-10-29 23:59:00 - agent_github_manager - INFO - Creating requirements.txt
+2025-10-29 23:59:00 - agent_github_manager - INFO - Creating README.md
+2025-10-29 23:59:00 - agent_github_manager - INFO - Committing and pushing code
+2025-10-29 23:59:02 - agent_github_manager - INFO - Code successfully pushed to: https://github.com/Franz-kingstein/coding-sim-flask-app-b0375d
+2025-10-30 00:05:35 - agent_github_manager - INFO - Calling function: create_github_repo
+2025-10-30 00:05:35 - agent_github_manager - INFO - Creating GitHub repository: coding-sim-flask-app-b0eba4
+2025-10-30 00:05:36 - agent_github_manager - INFO - Repository created: https://github.com/Franz-kingstein/coding-sim-flask-app-b0eba4
+2025-10-30 00:05:36 - agent_github_manager - INFO - Cloning repository locally
+2025-10-30 00:05:37 - agent_github_manager - INFO - Creating main.py file
+2025-10-30 00:05:37 - agent_github_manager - INFO - Parsing generated code into multiple files
+2025-10-30 00:05:37 - agent_github_manager - INFO - No structured files found, creating default files
+2025-10-30 00:05:37 - agent_github_manager - INFO - Creating netlify.toml configuration
+2025-10-30 00:05:37 - agent_github_manager - INFO - Creating requirements.txt
+2025-10-30 00:05:37 - agent_github_manager - INFO - Creating README.md
+2025-10-30 00:05:37 - agent_github_manager - INFO - Committing and pushing code
+2025-10-30 00:05:39 - agent_github_manager - INFO - Code successfully pushed to: https://github.com/Franz-kingstein/coding-sim-flask-app-b0eba4
+2025-10-30 00:06:56 - agent_github_manager - INFO - Calling function: create_github_repo
+2025-10-30 00:06:56 - agent_github_manager - INFO - Creating GitHub repository: coding-sim-flask-app-498781
+2025-10-30 00:06:57 - agent_github_manager - INFO - Repository created: https://github.com/Franz-kingstein/coding-sim-flask-app-498781
+2025-10-30 00:06:57 - agent_github_manager - INFO - Cloning repository locally
+2025-10-30 00:06:58 - agent_github_manager - INFO - Creating main.py file
+2025-10-30 00:06:58 - agent_github_manager - INFO - Parsing generated code into multiple files
+2025-10-30 00:06:58 - agent_github_manager - INFO - No structured files found, creating default files
+2025-10-30 00:06:58 - agent_github_manager - INFO - Creating netlify.toml configuration
+2025-10-30 00:06:58 - agent_github_manager - INFO - Creating requirements.txt
+2025-10-30 00:06:58 - agent_github_manager - INFO - Creating README.md
+2025-10-30 00:06:58 - agent_github_manager - INFO - Committing and pushing code
+2025-10-30 00:07:00 - agent_github_manager - INFO - Code successfully pushed to: https://github.com/Franz-kingstein/coding-sim-flask-app-498781
+2025-10-30 00:11:49 - agent_github_manager - INFO - Calling function: create_github_repo
+2025-10-30 00:11:49 - agent_github_manager - INFO - Creating GitHub repository: coding-sim-flask-app-a513ab
+2025-10-30 00:11:51 - agent_github_manager - INFO - Repository created: https://github.com/Franz-kingstein/coding-sim-flask-app-a513ab
+2025-10-30 00:11:51 - agent_github_manager - INFO - Cloning repository locally
+2025-10-30 00:11:52 - agent_github_manager - INFO - Creating main.py file
+2025-10-30 00:11:52 - agent_github_manager - INFO - Parsing generated code into multiple files
+2025-10-30 00:11:52 - agent_github_manager - INFO - No structured files found, creating default files
+2025-10-30 00:11:52 - agent_github_manager - INFO - Creating netlify.toml configuration
+2025-10-30 00:11:52 - agent_github_manager - INFO - Creating robots.txt
+2025-10-30 00:11:52 - agent_github_manager - INFO - Creating manifest.json
+2025-10-30 00:11:52 - agent_github_manager - INFO - Creating requirements.txt
+2025-10-30 00:11:52 - agent_github_manager - INFO - Creating README.md
+2025-10-30 00:11:52 - agent_github_manager - INFO - Committing and pushing code
+2025-10-30 00:11:54 - agent_github_manager - INFO - Code successfully pushed to: https://github.com/Franz-kingstein/coding-sim-flask-app-a513ab
+2025-10-30 00:16:42 - agent_github_manager - INFO - Calling function: create_github_repo
+2025-10-30 00:16:42 - agent_github_manager - INFO - Creating GitHub repository: coding-sim-flask-app-e44dee
+2025-10-30 00:16:43 - agent_github_manager - INFO - Repository created: https://github.com/Franz-kingstein/coding-sim-flask-app-e44dee
+2025-10-30 00:16:43 - agent_github_manager - INFO - Cloning repository locally
+2025-10-30 00:16:44 - agent_github_manager - INFO - Creating main.py file
+2025-10-30 00:16:44 - agent_github_manager - INFO - Parsing generated code into multiple files
+2025-10-30 00:16:44 - agent_github_manager - INFO - No structured files found, creating default files
+2025-10-30 00:16:44 - agent_github_manager - INFO - Creating netlify.toml configuration
+2025-10-30 00:16:44 - agent_github_manager - INFO - Creating robots.txt
+2025-10-30 00:16:44 - agent_github_manager - INFO - Creating manifest.json
+2025-10-30 00:16:44 - agent_github_manager - INFO - Creating requirements.txt
+2025-10-30 00:16:44 - agent_github_manager - INFO - Creating README.md
+2025-10-30 00:16:44 - agent_github_manager - INFO - Committing and pushing code
+2025-10-30 00:16:46 - agent_github_manager - INFO - Code successfully pushed to: https://github.com/Franz-kingstein/coding-sim-flask-app-e44dee
+2025-10-30 00:39:52 - agent_github_manager - INFO - Calling function: create_github_repo
+2025-10-30 00:39:52 - agent_github_manager - INFO - Creating GitHub repository: coding-sim-flask-app-502d1b
+2025-10-30 00:39:53 - agent_github_manager - INFO - Repository created: https://github.com/Franz-kingstein/coding-sim-flask-app-502d1b
+2025-10-30 00:39:53 - agent_github_manager - INFO - Cloning repository locally
+2025-10-30 00:39:54 - agent_github_manager - INFO - Creating main.py file
+2025-10-30 00:39:54 - agent_github_manager - INFO - Parsing generated code into multiple files
+2025-10-30 00:39:54 - agent_github_manager - INFO - No structured files found, creating default files
+2025-10-30 00:39:54 - agent_github_manager - INFO - Creating netlify.toml configuration
+2025-10-30 00:39:54 - agent_github_manager - INFO - Creating robots.txt
+2025-10-30 00:39:54 - agent_github_manager - INFO - Creating manifest.json
+2025-10-30 00:39:54 - agent_github_manager - INFO - Creating requirements.txt
+2025-10-30 00:39:54 - agent_github_manager - INFO - Creating README.md
+2025-10-30 00:39:54 - agent_github_manager - INFO - Committing and pushing code
+2025-10-30 00:39:56 - agent_github_manager - INFO - Code successfully pushed to: https://github.com/Franz-kingstein/coding-sim-flask-app-502d1b

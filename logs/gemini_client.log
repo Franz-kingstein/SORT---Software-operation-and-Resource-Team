@@ -1,0 +1,33 @@
+2025-10-30 00:05:24 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:05:24 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:05:25 - gemini_client - ERROR - Gemini API error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-30 00:05:25 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:05:25 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:05:26 - gemini_client - ERROR - Gemini API error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-30 00:05:26 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:05:26 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:05:26 - gemini_client - ERROR - Gemini API error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-30 00:05:26 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:05:26 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:05:27 - gemini_client - ERROR - Gemini API error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-30 00:05:27 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:05:27 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:05:28 - gemini_client - ERROR - Gemini API error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-30 00:05:28 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:05:28 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:05:28 - gemini_client - ERROR - Gemini API error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-30 00:06:30 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:06:30 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:06:48 - gemini_client - INFO - Received response from Gemini
+2025-10-30 00:11:15 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:11:15 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:11:40 - gemini_client - INFO - Received response from Gemini
+2025-10-30 00:16:16 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:16:16 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:16:34 - gemini_client - INFO - Received response from Gemini
+2025-10-30 00:29:46 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:29:46 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:30:17 - gemini_client - INFO - Received response from Gemini
+2025-10-30 00:39:40 - gemini_client - INFO - Configuring Gemini API
+2025-10-30 00:39:40 - gemini_client - INFO - Sending prompt to Gemini
+2025-10-30 00:39:46 - gemini_client - INFO - Received response from Gemini

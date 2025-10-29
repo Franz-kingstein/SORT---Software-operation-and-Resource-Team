@@ -1,0 +1,58 @@
+2025-10-29 23:57:27 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-29 23:57:27 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-da6caa
+2025-10-29 23:57:27 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-50ef7654
+2025-10-29 23:57:27 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-da6caa
+2025-10-29 23:57:27 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-29 23:57:29 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-50ef7654.netlify.app
+2025-10-29 23:57:29 - agent_netlify_deployer - INFO - Triggering manual deploy for site: 69647a68-d42d-4994-8efe-21123c93004f
+2025-10-29 23:57:31 - agent_netlify_deployer - INFO - Deploy trigger response: 200
+2025-10-29 23:59:05 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-29 23:59:05 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-b0375d
+2025-10-29 23:59:05 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-71d17f23
+2025-10-29 23:59:05 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-b0375d
+2025-10-29 23:59:05 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-29 23:59:07 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-71d17f23.netlify.app
+2025-10-29 23:59:07 - agent_netlify_deployer - INFO - Triggering manual deploy for site: 7c010d62-78a6-402c-b634-fa54df1c0ffa
+2025-10-29 23:59:09 - agent_netlify_deployer - INFO - Deploy trigger response: 200
+2025-10-30 00:05:42 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 00:05:42 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-b0eba4
+2025-10-30 00:05:42 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-acf7e9bf
+2025-10-30 00:05:42 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-b0eba4
+2025-10-30 00:05:42 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 00:05:45 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-acf7e9bf.netlify.app
+2025-10-30 00:05:45 - agent_netlify_deployer - INFO - Triggering manual deploy for site: c82adb01-ff9c-48fc-bb53-2b138fe8cc91
+2025-10-30 00:05:46 - agent_netlify_deployer - INFO - Deploy trigger response: 200
+2025-10-30 00:07:04 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 00:07:04 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-498781
+2025-10-30 00:07:04 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-28ece55a
+2025-10-30 00:07:04 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-498781
+2025-10-30 00:07:04 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 00:07:07 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-28ece55a.netlify.app
+2025-10-30 00:07:07 - agent_netlify_deployer - INFO - Triggering manual deploy for site: eaf7022c-0f72-47ab-b624-8c2b9b17c52d
+2025-10-30 00:07:08 - agent_netlify_deployer - INFO - Deploy trigger response: 200
+2025-10-30 00:11:57 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 00:11:57 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-a513ab
+2025-10-30 00:11:57 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-7279766a
+2025-10-30 00:11:57 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-a513ab
+2025-10-30 00:11:57 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 00:12:00 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-7279766a.netlify.app
+2025-10-30 00:12:00 - agent_netlify_deployer - INFO - Triggering manual deploy for site: 4cb45239-80ee-43ee-b943-70775e991327
+2025-10-30 00:12:02 - agent_netlify_deployer - INFO - Deploy trigger response: 200
+2025-10-30 00:16:49 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 00:16:49 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-e44dee
+2025-10-30 00:16:49 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-d337fdf5
+2025-10-30 00:16:49 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-e44dee
+2025-10-30 00:16:49 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 00:16:51 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-d337fdf5.netlify.app
+2025-10-30 00:16:51 - agent_netlify_deployer - INFO - Deploying files directly to site: 618bf5f4-c8b3-49f1-9cdb-3a80abe65082
+2025-10-30 00:16:53 - agent_netlify_deployer - INFO - Direct deploy response: 200
+2025-10-30 00:16:53 - agent_netlify_deployer - INFO - Files deployed successfully via direct upload
+2025-10-30 00:40:01 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 00:40:01 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-502d1b
+2025-10-30 00:40:01 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-b2300fee
+2025-10-30 00:40:01 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-502d1b
+2025-10-30 00:40:01 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 00:40:03 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-b2300fee.netlify.app
+2025-10-30 00:40:03 - agent_netlify_deployer - INFO - Creating deployment for site: 93f0c69e-33d3-43f1-a513-2bfd9cc1a015
+2025-10-30 00:40:05 - agent_netlify_deployer - INFO - Deployment response: 200
+2025-10-30 00:40:05 - agent_netlify_deployer - INFO - Deployment successful! URL: https://6902668d3c68bc51605b976a--coding-sim-app-b2300fee.netlify.app
