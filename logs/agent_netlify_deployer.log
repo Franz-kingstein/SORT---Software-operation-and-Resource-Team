@@ -56,3 +56,64 @@
 2025-10-30 00:40:03 - agent_netlify_deployer - INFO - Creating deployment for site: 93f0c69e-33d3-43f1-a513-2bfd9cc1a015
 2025-10-30 00:40:05 - agent_netlify_deployer - INFO - Deployment response: 200
 2025-10-30 00:40:05 - agent_netlify_deployer - INFO - Deployment successful! URL: https://6902668d3c68bc51605b976a--coding-sim-app-b2300fee.netlify.app
+2025-10-30 00:46:09 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 00:46:09 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-9e8601
+2025-10-30 00:46:09 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-a6db538c
+2025-10-30 00:46:09 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-9e8601
+2025-10-30 00:46:09 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 00:46:12 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-a6db538c.netlify.app
+2025-10-30 00:46:12 - agent_netlify_deployer - INFO - Setting up GitHub integration for site: 46b70c44-ed29-4533-a143-acbe5ceba528
+2025-10-30 00:46:13 - agent_netlify_deployer - INFO - GitHub deployment trigger response: 200
+2025-10-30 00:46:13 - agent_netlify_deployer - INFO - GitHub deployment started successfully: 690267fd6218732c121b6eca
+2025-10-30 00:49:58 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 00:49:58 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-009054
+2025-10-30 00:49:58 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-5f884c99
+2025-10-30 00:49:58 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-009054
+2025-10-30 00:49:58 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 00:50:01 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-5f884c99.netlify.app
+2025-10-30 00:50:01 - agent_netlify_deployer - INFO - Setting up GitHub integration for site: 4bae6e85-f178-4b4c-a47a-e8ac610ef9fe
+2025-10-30 00:50:02 - agent_netlify_deployer - INFO - GitHub deployment trigger response: 200
+2025-10-30 00:50:02 - agent_netlify_deployer - INFO - GitHub deployment started successfully: 690268e201976538f10c32e0
+2025-10-30 01:05:09 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 01:05:09 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-59cde2
+2025-10-30 01:05:09 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-2ef5b0bb
+2025-10-30 01:05:09 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-59cde2
+2025-10-30 01:05:09 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 01:05:12 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-2ef5b0bb.netlify.app
+2025-10-30 01:05:12 - agent_netlify_deployer - INFO - Setting up GitHub integration for site: fd05eeb2-ff5e-4d30-9321-b6e329813feb
+2025-10-30 01:05:13 - agent_netlify_deployer - INFO - GitHub deployment trigger response: 200
+2025-10-30 01:05:13 - agent_netlify_deployer - INFO - GitHub deployment started successfully: 69026c71bce02f4e792b334a
+2025-10-30 01:10:34 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 01:10:34 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-b23c05
+2025-10-30 01:10:34 - agent_netlify_deployer - INFO - ⏳ Waiting 2 minutes for GitHub repository to be fully ready...
+2025-10-30 01:12:34 - agent_netlify_deployer - INFO - ✅ 2-minute wait completed, proceeding with Netlify deployment
+2025-10-30 01:12:34 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-a2c70643
+2025-10-30 01:12:34 - agent_netlify_deployer - INFO - Repository path: Franz-kingstein/coding-sim-flask-app-b23c05
+2025-10-30 01:12:34 - agent_netlify_deployer - INFO - Making API request to Netlify
+2025-10-30 01:12:36 - agent_netlify_deployer - INFO - Site created successfully: http://coding-sim-app-a2c70643.netlify.app
+2025-10-30 01:12:36 - agent_netlify_deployer - INFO - Setting up GitHub integration for site: 02dbc50b-64b2-4030-aef7-b63e764d040c
+2025-10-30 01:12:38 - agent_netlify_deployer - INFO - GitHub deployment trigger response: 200
+2025-10-30 01:12:38 - agent_netlify_deployer - INFO - GitHub deployment started successfully: 69026e2ef361eb3befc3557d
+2025-10-30 09:10:09 - agent_netlify_deployer - INFO - Calling function: deploy_to_netlify
+2025-10-30 09:10:09 - agent_netlify_deployer - INFO - Starting Netlify deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-a396c1
+2025-10-30 09:10:09 - agent_netlify_deployer - INFO - ⏳ Waiting 2 minutes for GitHub repository to be fully ready...
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - ✅ 2-minute wait completed, proceeding with Netlify deployment
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - Generated site name: coding-sim-app-32af10bb
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - Repository name: coding-sim-flask-app-a396c1
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-a396c1
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-a396c1
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-a396c1
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - ✅ Repository is public: True
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - ✅ Default branch: main
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - 📋 Netlify deployment configuration:
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO -    Site name: coding-sim-app-32af10bb
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-a396c1
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO -    Branch: main
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO -    Build directory: /
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-a396c1
+2025-10-30 09:12:09 - agent_netlify_deployer - INFO - Making API request to Netlify with GitHub integration
+2025-10-30 09:12:12 - agent_netlify_deployer - INFO - ✅ Site created successfully: http://coding-sim-app-32af10bb.netlify.app
+2025-10-30 09:12:12 - agent_netlify_deployer - INFO - ✅ Site ID: 91300fc5-b978-4998-994c-e8e740968239
+2025-10-30 09:12:12 - agent_netlify_deployer - INFO - ✅ Admin URL: https://app.netlify.com/projects/coding-sim-app-32af10bb
+2025-10-30 09:12:12 - agent_netlify_deployer - WARNING - ⚠️ Site created but GitHub integration not automatically configured

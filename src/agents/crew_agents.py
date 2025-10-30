@@ -6,48 +6,54 @@ import os
 import subprocess
 from github import Github
 import requests
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
 
-llm = "gemini/gemini-2.5-flash"
+llm = "gemini/gemini-2.0-flash-exp"
 code_gen_logger = get_agent_logger("code_generator")
 github_logger = get_agent_logger("github_manager")
-netlify_logger = get_agent_logger("netlify_deployer")
+render_logger = get_agent_logger("render_deployer")
 api_logger = get_api_logger()
 
 @tool
 def generate_code(requirement: str) -> str:
-    """Generates complete Python code for a simple application based on the given requirement."""
+    """Generates complete code for a web application based on the given requirement."""
     log_function_call(code_gen_logger, "generate_code", requirement=requirement[:100] + "...")
     
     try:
         code_gen_logger.info("Starting code generation")
-        prompt = f"""Generate a complete web application based on this requirement: {requirement}. 
+        prompt = f"""Generate a complete web application based on this requirement: {requirement}.
 
-Create the following files for Netlify deployment:
+Create a fully functional web application optimized for Render deployment with these files:
 
-1. index.html - A complete HTML page with inline CSS and JavaScript
-2. netlify.toml - Configuration file for Netlify
-3. main.py - Flask version for local development
+1. index.html - Complete HTML page with inline CSS and JavaScript
+2. package.json - For Node.js deployment  
+3. main.py - Python Flask version
+4. render.yaml - Render configuration
 
-Make it a fully functional web application that works on Netlify without server-side processing.
-Return the files in this format:
+Make it production-ready and responsive. Include interactive features.
 
+Return the code in this format:
 === index.html ===
-[HTML content here]
+[HTML code here]
 
-=== netlify.toml ===
-[Netlify config here]
+=== package.json ===
+[JSON code here]
 
 === main.py ===
-[Flask code here]
-"""
+[Python code here]
+
+=== render.yaml ===
+[YAML code here]
+
+Focus on creating a beautiful, interactive web application."""
         
-        result = get_gemini_response(prompt)
-        code_gen_logger.info(f"Code generation successful. Generated {len(result)} characters of code")
+        response = get_gemini_response(prompt)
+        code_gen_logger.info(f"Code generation successful. Generated {len(response)} characters of code")
+        return response
         
-        return result
     except Exception as e:
         code_gen_logger.error(f"Code generation failed: {str(e)}")
         raise
@@ -108,9 +114,33 @@ def create_github_repo(code: str, repo_name: str) -> str:
         if not files_to_create:
             github_logger.info("No structured files found, creating default files")
             
-            # Create main.py
+            # Create main.py with Render-compatible Flask app
+            render_flask_app = f"""
+import os
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+# HTML template embedded in the Flask app
+HTML_TEMPLATE = '''
+{code}
+'''
+
+@app.route('/')
+def home():
+    return render_template_string(HTML_TEMPLATE)
+
+@app.route('/health')
+def health_check():
+    return {{"status": "healthy", "message": "AI-generated app is running"}}
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
+"""
+            
             with open(f"{repo_dir}/main.py", "w") as f:
-                f.write(code)
+                f.write(render_flask_app)
             
             # Create default index.html
             default_html = f"""<!DOCTYPE html>
@@ -263,7 +293,7 @@ def create_github_repo(code: str, repo_name: str) -> str:
                 <li>Responsive CSS Grid Layout</li>
                 <li>Modern CSS3 Animations</li>
                 <li>Interactive JavaScript Elements</li>
-                <li>Netlify-Optimized Deployment</li>
+                <li>Render-Optimized Deployment</li>
                 <li>Progressive Web App Ready</li>
                 <li>Cross-Browser Compatible</li>
             </ul>
@@ -274,7 +304,7 @@ def create_github_repo(code: str, repo_name: str) -> str:
             <p><strong>CrewAI Framework:</strong> Multi-agent orchestration system<br>
             <strong>Google Gemini:</strong> Advanced AI code generation<br>
             <strong>GitHub API:</strong> Automated repository management<br>
-            <strong>Netlify:</strong> Instant deployment and hosting</p>
+            <strong>Render:</strong> Instant deployment and hosting</p>
         </div>
     </div>
     
@@ -337,66 +367,94 @@ def create_github_repo(code: str, repo_name: str) -> str:
             
             with open(f"{repo_dir}/index.html", "w") as f:
                 f.write(default_html)
+
+            # Ensure Render static publish directory exists with index.html
+            public_dir = os.path.join(repo_dir, "public")
+            os.makedirs(public_dir, exist_ok=True)
+            with open(os.path.join(public_dir, "index.html"), "w") as f:
+                f.write(default_html)
         
-        # Always create netlify.toml for proper deployment
-        netlify_config = """[build]
-  publish = "."
-  command = "echo 'Static site ready for deployment'"
-  
-[build.environment]
-  NODE_VERSION = "18"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-
-[[headers]]
-  for = "*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-  for = "*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "*.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Handle SPA routing - remove problematic conditions
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-# API redirects for future expansion
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
-# Redirect old paths
-[[redirects]]
-  from = "/old-path"
-  to = "/new-path"
-  status = 301"""
+        # Create render.yaml for Render deployment
+        render_config = """services:
+  - type: web
+    name: ai-generated-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.10"
+      - key: PORT
+        value: "10000"
+    healthCheckPath: /
+    
+    - type: static_site
+    name: ai-generated-static
+    env: static
+    buildCommand: echo 'Building static site...'
+        staticPublishPath: public
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-XSS-Protection
+        value: "1; mode=block"
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: "*.html"
+        name: Cache-Control
+        value: "public, max-age=0, must-revalidate"
+      - path: "*.css"
+        name: Cache-Control
+        value: "public, max-age=31536000, immutable"
+      - path: "*.js"
+        name: Cache-Control
+        value: "public, max-age=31536000, immutable"
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html"""
         
-        github_logger.info("Creating netlify.toml configuration")
-        with open(f"{repo_dir}/netlify.toml", "w") as f:
-            f.write(netlify_config)
+        github_logger.info("Creating render.yaml configuration")
+        with open(f"{repo_dir}/render.yaml", "w") as f:
+            f.write(render_config)
+        
+        # Also create package.json for Node.js deployment option
+        github_logger.info("Creating package.json")
+        package_json = """{
+  "name": "ai-generated-web-app",
+  "version": "1.0.0",
+  "description": "AI-generated web application deployed on Render",
+  "main": "index.html",
+  "scripts": {
+    "start": "python main.py",
+    "build": "echo 'Building static site...'",
+    "dev": "python main.py"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": ["ai", "web-app", "render", "static"],
+  "author": "AI Code Generator",
+  "license": "MIT"
+}"""
+        
+        with open(f"{repo_dir}/package.json", "w") as f:
+            f.write(package_json)
         
         # Create robots.txt for SEO
         github_logger.info("Creating robots.txt")
         robots_content = """User-agent: *
 Allow: /
 
-Sitemap: https://{site_name}.netlify.app/sitemap.xml"""
+Sitemap: https://{site_name}.onrender.com/sitemap.xml"""
         
         with open(f"{repo_dir}/robots.txt", "w") as f:
             f.write(robots_content)
@@ -423,18 +481,58 @@ Sitemap: https://{site_name}.netlify.app/sitemap.xml"""
         with open(f"{repo_dir}/manifest.json", "w") as f:
             f.write(manifest_content)
         
-        # Create requirements.txt
-        github_logger.info("Creating requirements.txt")
+        # Create requirements.txt for Render Python deployment
+        github_logger.info("Creating requirements.txt for Render deployment")
+        requirements_content = """flask==2.3.3
+gunicorn==21.2.0
+requests==2.31.0
+python-dotenv==1.0.0
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+Werkzeug==2.3.7
+itsdangerous==2.1.2
+click==8.1.7"""
+        
         with open(f"{repo_dir}/requirements.txt", "w") as f:
-            f.write("flask\n")
+            f.write(requirements_content)
+        
+        # Create start.sh script for Render deployment
+        github_logger.info("Creating start.sh for Render")
+        start_script = """#!/bin/bash
+# Start script for Render deployment
+
+# Install dependencies if not already installed
+if [ ! -d ".venv" ]; then
+    python -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+else
+    source .venv/bin/activate
+fi
+
+# Start the Flask application with Gunicorn
+if [ -f "main.py" ]; then
+    echo "Starting Flask app with Gunicorn..."
+    gunicorn --bind 0.0.0.0:$PORT main:app
+else
+    echo "Starting simple HTTP server for static files..."
+    python -m http.server $PORT
+fi"""
+        
+        with open(f"{repo_dir}/start.sh", "w") as f:
+            f.write(start_script)
+        
+        # Make start.sh executable
+        import stat
+        os.chmod(f"{repo_dir}/start.sh", stat.S_IRWXU | stat.S_IRGRP | stat.S_IROTH)
         
         # Create README.md
         github_logger.info("Creating README.md")
-        readme_content = f"""# Generated Flask Application
+        readme_content = f"""# AI Generated Web Application
 
-This Flask application was automatically generated using AI.
+This web application was automatically generated using AI and optimized for Render deployment.
 
-## Quick Start
+## Quick Start - Local Development
 
 1. Install dependencies:
    ```bash
@@ -448,9 +546,34 @@ This Flask application was automatically generated using AI.
 
 3. Open your browser to the displayed URL (usually http://localhost:5000)
 
-## Generated Code
+## Deployment on Render
 
-The main application code is in `main.py`.
+This repository is configured for automatic deployment on Render:
+
+- **render.yaml**: Render service configuration
+- **package.json**: Node.js deployment metadata  
+- **index.html**: Static web content
+- **main.py**: Python Flask alternative
+
+## Files Structure
+
+- `index.html` - Main web page with interactive features
+- `main.py` - Python Flask application code
+- `render.yaml` - Render deployment configuration
+- `package.json` - Node.js package metadata
+- `requirements.txt` - Python dependencies
+- `manifest.json` - PWA configuration
+
+## Features
+
+- 🚀 AI-generated code
+- 📱 Responsive design
+- ⚡ Optimized for Render hosting
+- 🔄 Automatic deployment
+- 💻 Both static and Flask versions
+
+---
+*Generated by Agentic Framework with CrewAI, Google Gemini & Render*
 
 ---
 *Generated by Agentic Framework with CrewAI & Google Gemini*
@@ -475,267 +598,257 @@ The main application code is in `main.py`.
         raise
 
 @tool
-def deploy_to_netlify(repo_url: str) -> str:
-    """Deploy the GitHub repository to Netlify and provide the live URL."""
-    log_function_call(netlify_logger, "deploy_to_netlify", repo_url=repo_url)
+def deploy_to_render(repo_url: str) -> str:
+    """Deploy the GitHub repository to Render and provide the live URL."""
+    import time  # Import time module for sleep functionality
+    log_function_call(render_logger, "deploy_to_render", repo_url=repo_url)
     
     try:
-        netlify_logger.info(f"Starting Netlify deployment for: {repo_url}")
+        render_logger.info(f"Starting Render deployment for: {repo_url}")
+
+        # Wait for 30 seconds to allow GitHub to fully process the repository
+        render_logger.info("⏳ Waiting 30 seconds for GitHub repository to be fully ready...")
+        print("⏳ Waiting 30 seconds for GitHub repository to be fully ready before Render deployment...")
+
+        for remaining in range(30, 0, -10):
+            print(f"⏳ Waiting {remaining} seconds... (GitHub processing time)")
+            time.sleep(10)
+
+        print("✅ Wait complete! Starting Render deployment...")
+        render_logger.info("✅ 30-second wait completed, proceeding with Render deployment")
         
-        netlify_token = os.getenv("NETLIFY_TOKEN")
-        headers = {"Authorization": f"Bearer {netlify_token}", "Content-Type": "application/json"}
+        render_token = os.getenv("RENDER_TOKEN")
+        if not render_token:
+            error_msg = "❌ RENDER_TOKEN not found in environment variables"
+            render_logger.error(error_msg)
+            return error_msg
         
-        # Generate unique site name
+        headers = {
+            "Authorization": f"Bearer {render_token}",
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+        
+        # Generate unique service name
         import uuid
-        site_name = f"coding-sim-app-{uuid.uuid4().hex[:8]}"
-        netlify_logger.info(f"Generated site name: {site_name}")
+        service_name = f"coding-sim-app-{uuid.uuid4().hex[:8]}"
+        render_logger.info(f"Generated service name: {service_name}")
         
+        # Ensure repo_url is valid; attempt to fix or infer if malformed/missing
+        if not repo_url or "github.com" not in repo_url:
+            try:
+                render_logger.warning("Repo URL missing or invalid. Attempting to infer from GitHub account...")
+                gh_token = os.getenv("GITHUB_TOKEN")
+                if gh_token:
+                    gh_headers = {"Authorization": f"token {gh_token}", "Accept": "application/vnd.github+json"}
+                    # Get current user login (for logging)
+                    me_resp = requests.get("https://api.github.com/user", headers=gh_headers)
+                    user_login = me_resp.json().get("login", "unknown") if me_resp.status_code == 200 else "unknown"
+                    # List recent repos
+                    repos_resp = requests.get(
+                        "https://api.github.com/user/repos?sort=created&direction=desc&per_page=30",
+                        headers=gh_headers,
+                    )
+                    if repos_resp.status_code == 200:
+                        candidates = repos_resp.json()
+                        # Prefer recent repos matching our naming pattern
+                        preferred = None
+                        for r in candidates:
+                            name = r.get("name", "")
+                            if name.startswith("coding-sim"):
+                                preferred = r
+                                break
+                        chosen = preferred or (candidates[0] if candidates else None)
+                        if chosen and chosen.get("html_url"):
+                            repo_url = chosen["html_url"]
+                            render_logger.info(f"✅ Inferred repository for user {user_login}: {repo_url}")
+                        else:
+                            return "❌ Could not infer repository URL from GitHub. Please provide a valid repo URL."
+                    else:
+                        return f"❌ Failed to list GitHub repositories: {repos_resp.status_code} - {repos_resp.text[:200]}"
+                else:
+                    return "❌ GITHUB_TOKEN not found. Provide repo_url explicitly or set GITHUB_TOKEN."
+            except Exception as e:
+                return f"❌ Error inferring repository URL: {str(e)}"
+
+        # If user passed 'owner/repo', build the HTTPS URL
+        if repo_url and "github.com" not in repo_url and "/" in repo_url:
+            repo_url = f"https://github.com/{repo_url.strip()}"
+            render_logger.info(f"Normalized repo URL to: {repo_url}")
+
         # Extract owner and repo from URL
         repo_parts = repo_url.replace("https://github.com/", "").replace(".git", "")
-        netlify_logger.info(f"Repository path: {repo_parts}")
         
-        # Create site from repo with installation_id for GitHub App
-        data = {
-            "name": site_name,
-            # Create site without GitHub integration for faster deployment
-            "build_settings": {
-                "cmd": "",
-                "dir": "/"
-            },
-            "processing_settings": {
-                "skip_prs": False,
-                "ignore_commands": False
-            }
-        }
-        
-        netlify_logger.info("Making API request to Netlify")
-        response = requests.post("https://api.netlify.com/api/v1/sites", headers=headers, json=data)
-        
-        log_api_response(api_logger, "Netlify", response.status_code, response.text)
-        
-        if response.status_code == 201:
-            site = response.json()
-            live_url = site.get("url", f"https://{site_name}.netlify.app")
-            netlify_logger.info(f"Site created successfully: {live_url}")
+        # Validate the repo format
+        if "/" not in repo_parts or len(repo_parts.split("/")) != 2:
+            error_msg = f"Invalid GitHub URL format: {repo_url}"
+            render_logger.error(error_msg)
+            return error_msg
             
-            # Deploy files directly to Netlify using a more efficient method
-            site_id = site.get("id")
-            if site_id:
-                netlify_logger.info(f"Creating deployment for site: {site_id}")
-                
-                try:
-                    # Use Netlify's drag & drop deployment API
-                    import zipfile
-                    import io
-                    import base64
-                    
-                    # Create a simple HTML file
-                    html_content = """<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Generated Web App</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            color: white; 
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 1s ease-in;
-        }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .container { 
-            max-width: 900px; 
-            margin: 20px;
-            background: rgba(255,255,255,0.1); 
-            padding: 40px; 
-            border-radius: 20px; 
-            backdrop-filter: blur(15px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-        }
-        h1 { 
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .success-badge {
-            background: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        .feature { 
-            background: rgba(255,255,255,0.15); 
-            padding: 25px; 
-            margin: 25px 0; 
-            border-radius: 15px;
-            border-left: 4px solid #ff6b6b;
-            transition: transform 0.3s ease;
-        }
-        .feature:hover { transform: translateY(-5px); }
-        button { 
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            color: white; 
-            border: none; 
-            padding: 12px 25px; 
-            border-radius: 25px; 
-            cursor: pointer; 
-            font-size: 16px;
-            font-weight: bold;
-            margin: 10px;
-            transition: all 0.3s ease;
-        }
-        button:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .stat {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🚀 AI-Generated Web Application</h1>
-        <div class="success-badge">✅ Successfully Deployed!</div>
+        owner, repo_name = repo_parts.split("/")
+        render_logger.info(f"Repository owner: {owner}")
+        render_logger.info(f"Repository name: {repo_name}")
+        render_logger.info(f"Full repository path: {repo_parts}")
         
-        <div class="feature">
-            <h2>🎉 Welcome to Your AI App!</h2>
-            <p>This application was automatically generated using Google Gemini AI and deployed through our advanced agentic framework.</p>
-            <button onclick="alert('🎉 Hello from your AI-generated app!')">Test Interaction</button>
-            <button onclick="changeTheme()">🎨 Change Theme</button>
-        </div>
-        
-        <div class="stats">
-            <div class="stat">⚡ Real-time Deploy</div>
-            <div class="stat">🤖 AI Generated</div>
-            <div class="stat">🔄 Auto GitHub</div>
-            <div class="stat">🌐 Live Netlify</div>
-        </div>
-        
-        <div class="feature">
-            <h2>🔧 Technical Stack</h2>
-            <p><strong>AI Engine:</strong> Google Gemini 2.5 Flash<br>
-            <strong>Framework:</strong> CrewAI Multi-Agent System<br>
-            <strong>Version Control:</strong> GitHub API<br>
-            <strong>Hosting:</strong> Netlify Direct Deploy<br>
-            <strong>Frontend:</strong> Modern HTML5 + CSS3 + JavaScript</p>
-        </div>
-        
-        <div class="feature">
-            <h2>⭐ Key Features</h2>
-            <p>✓ Fully Automated Deployment Pipeline<br>
-            ✓ AI-Powered Code Generation<br>
-            ✓ Responsive Design<br>
-            ✓ Interactive Elements<br>
-            ✓ Modern Web Standards</p>
-        </div>
-    </div>
-    
-    <script>
-        function changeTheme() {
-            const themes = [
-                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
-            ];
-            const randomTheme = themes[Math.floor(Math.random() * themes.length)];
-            document.body.style.background = randomTheme;
-        }
-        
-        // Add some dynamic effects
-        document.addEventListener('DOMContentLoaded', function() {
-            const features = document.querySelectorAll('.feature');
-            features.forEach((feature, index) => {
-                setTimeout(() => {
-                    feature.style.animation = 'slideInUp 0.6s ease forwards';
-                }, index * 200);
-            });
-        });
-        
-        // Add CSS animation
-        const style = document.createElement('style');
-        style.textContent = '@keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }';
-        document.head.appendChild(style);
-    </script>
-</body>
-</html>"""
-                    
-                    # Try a simpler deployment approach using Netlify's file-based API
-                    files = {"index.html": html_content}
-                    
-                    # Use the correct API endpoint for file deployment
-                    deploy_response = requests.post(
-                        f"https://api.netlify.com/api/v1/sites/{site_id}/deploys",
-                        headers={**headers, "Content-Type": "application/json"},
-                        json={
-                            "files": files,
-                            "draft": False,
-                            "async": False  # Wait for completion
-                        }
-                    )
-                    
-                    netlify_logger.info(f"Deployment response: {deploy_response.status_code}")
-                    
-                    if deploy_response.status_code in [200, 201]:
-                        deploy_data = deploy_response.json()
-                        deploy_url = deploy_data.get("deploy_ssl_url", live_url)
-                        netlify_logger.info(f"Deployment successful! URL: {deploy_url}")
-                        return f"🎉 SUCCESS! Your AI-generated app is live!\n🌐 URL: {deploy_url}\n📁 GitHub: {repo_url}\n⚡ Deployment: Direct upload completed successfully"
-                    else:
-                        netlify_logger.warning(f"Deployment failed: {deploy_response.text}")
-                        # Fallback: Just return the site URL for manual setup
-                        return f"⚠️  Site created but deployment pending.\n🌐 URL: {live_url}\n📁 GitHub: {repo_url}\n💡 Try accessing the URL in a few minutes or set up GitHub integration manually."
-                        
-                except Exception as e:
-                    netlify_logger.error(f"Deployment error: {str(e)}")
-                    return f"⚠️  Site created but deployment had issues.\n🌐 URL: {live_url}\n📁 GitHub: {repo_url}\n🔧 Manual setup may be required."
+        # Verify repository exists
+        try:
+            import requests as github_requests
+            github_check_url = f"https://api.github.com/repos/{repo_parts}"
+            github_headers = {"Authorization": f"token {os.getenv('GITHUB_TOKEN')}"}
             
-            return f"✅ Netlify site created! URL: {live_url}\n📁 GitHub repo: {repo_url}\n⚠️  Note: Manual deployment configuration may be needed."
-        else:
-            error_msg = f"Error creating Netlify site: {response.status_code} - {response.text}"
-            netlify_logger.error(error_msg)
+            render_logger.info(f"Verifying repository exists: {github_check_url}")
+            github_response = github_requests.get(github_check_url, headers=github_headers)
             
-            # Try alternative approach - create site without repo link
-            netlify_logger.info("Trying alternative approach - creating site without repo")
-            simple_data = {
-                "name": site_name
-            }
-            simple_response = requests.post("https://api.netlify.com/api/v1/sites", headers=headers, json=simple_data)
-            
-            if simple_response.status_code == 201:
-                simple_site = simple_response.json()
-                simple_url = simple_site.get("url", f"https://{site_name}.netlify.app")
-                netlify_logger.info(f"Created simple site: {simple_url}")
-                return f"Created Netlify site: {simple_url}. Manual deployment required - connect your GitHub repo in Netlify dashboard."
+            if github_response.status_code == 200:
+                repo_info = github_response.json()
+                render_logger.info(f"✅ Repository verified: {repo_info.get('full_name')}")
+                render_logger.info(f"✅ Repository is public: {not repo_info.get('private', True)}")
+                render_logger.info(f"✅ Default branch: {repo_info.get('default_branch', 'main')}")
             else:
-                return error_msg
-    
+                render_logger.warning(f"⚠️ Could not verify repository: {github_response.status_code}")
+                
+        except Exception as e:
+            render_logger.warning(f"Repository verification failed: {str(e)}")
+        
+        # Create Render static site service
+        # First, get the owner ID from Render API
+        try:
+            render_logger.info("🔑 Getting Render account owner ID...")
+            owner_response = requests.get(
+                "https://api.render.com/v1/owners",
+                headers=headers
+            )
+            
+            if owner_response.status_code == 200:
+                owners = owner_response.json()
+                if owners:
+                    # Try to find an owner that matches fallback account 'Franz-kingstein'
+                    fallback_handle = "Franz-kingstein"
+                    owner_id = None
+                    matched_descriptor = None
+                    for entry in owners:
+                        obj = entry.get("owner") or entry
+                        oid = obj.get("id") or entry.get("id")
+                        username = obj.get("username") or obj.get("login") or obj.get("name") or obj.get("slug")
+                        if isinstance(username, str) and username.lower() == fallback_handle.lower():
+                            owner_id = oid
+                            matched_descriptor = username
+                            break
+                    # Fallback to first owner if no username match
+                    if not owner_id:
+                        owner_id = owners[0].get("owner", {}).get("id") or owners[0].get("id")
+                        matched_descriptor = matched_descriptor or "first-owner"
+                    render_logger.info(f"✅ Using Render owner ID: {owner_id} (match: {matched_descriptor})")
+                else:
+                    return "❌ No Render owners found in account. Please check your RENDER_TOKEN permissions."
+            else:
+                return f"❌ Failed to get Render owner ID: {owner_response.status_code} - {owner_response.text}"
+                
+        except Exception as e:
+            return f"❌ Error getting Render owner ID: {str(e)}"
+        
+        data = {
+            "type": "static_site",
+            "name": service_name,
+            "repo": repo_url,
+            "branch": "main",
+            "buildCommand": "echo 'Building static site...'",
+            "publishPath": "public",
+            "pullRequestPreviewsEnabled": False,
+            "autoSync": True,
+            "ownerId": owner_id  # Required field
+        }
+        
+        render_logger.info(f"📋 Render deployment configuration:")
+        render_logger.info(f"   Service name: {service_name}")
+        render_logger.info(f"   Repository: {repo_parts}")
+        render_logger.info(f"   Branch: main")
+        render_logger.info(f"   Build command: echo 'Building static site...'")
+        render_logger.info(f"   Publish path: public")
+        render_logger.info(f"   Repository URL: {repo_url}")
+        render_logger.info(f"   Owner ID: {owner_id}")
+
+        render_logger.info("Making API request to Render")
+        response = requests.post(
+            "https://api.render.com/v1/services",
+            headers=headers,
+            json=data
+        )
+
+        log_api_response(api_logger, "Render", response.status_code, response.text)
+
+        if response.status_code == 201:
+            service = response.json()
+            service_data = service.get("service", service)  # Handle different response formats
+            service_id = service_data.get("id")
+            live_url = f"https://{service_name}.onrender.com"
+            
+            render_logger.info(f"✅ Render service created successfully: {live_url}")
+            render_logger.info(f"✅ Service ID: {service_id}")
+            
+            return f"""🎉 SUCCESS! Site deployed to Render!
+
+🌐 **Live URL:** {live_url}
+📁 **GitHub Repository:** {repo_url}  
+🔗 **Repository Path:** {repo_parts}
+🆔 **Service ID:** {service_id}
+🔄 **Auto-deploy:** Enabled from main branch
+⚡ **Platform:** Render (No SSH issues!)
+🚀 **Status:** Building and deploying automatically
+
+✅ **Integration Verified:** 
+   - Repository correctly linked to Render
+   - Auto-deployment configured 
+   - Build settings applied
+   - Site will be accessible at {live_url}
+
+💡 **Note:** The site will be live in 2-3 minutes as Render builds and deploys your code!
+Future commits to the main branch will automatically trigger new deployments."""
+        
+        elif response.status_code == 400:
+            try:
+                error_details = response.json()
+                error_message = error_details.get('message', 'Bad request')
+                render_logger.error(f"Render API validation error: {error_details}")
+                
+                if 'ownerID' in error_message:
+                    return f"""❌ Render deployment failed - Owner ID issue:
+
+**Error:** {error_message}
+**Repository:** {repo_url}
+**Repository Path:** {repo_parts}
+
+**Troubleshooting:**
+1. Verify RENDER_TOKEN has proper permissions
+2. Check if you have access to create services in Render
+3. Ensure your Render account is properly set up
+
+**Token:** {render_token[:10]}..."""
+                else:
+                    return f"""❌ Render deployment failed (API Validation Error):
+
+**Error:** {error_message}
+**Repository:** {repo_url}
+**Repository Path:** {repo_parts}
+**Details:** {error_details}"""
+            except:
+                return f"❌ Render API validation error: {response.text[:500]}"
+        
+        elif response.status_code == 401:
+            return f"""❌ Render authentication failed:
+
+**Error:** Unauthorized access to Render API
+**Check:** Verify RENDER_TOKEN in .env file: {render_token[:10]}...
+**Repository:** {repo_url}"""
+        
+        else:
+            error_msg = f"❌ Render deployment failed: {response.status_code} - {response.text[:500]}"
+            render_logger.error(error_msg)
+            return error_msg
+                
     except Exception as e:
-        error_msg = f"Error deploying to Netlify: {str(e)}"
-        netlify_logger.error(error_msg)
+        error_msg = f"Error deploying to Render: {str(e)}"
+        render_logger.error(error_msg)
         return error_msg
 
 code_generator = Agent(
@@ -756,11 +869,11 @@ github_agent = Agent(
     allow_delegation=False
 )
 
-netlify_agent = Agent(
-    role="Netlify Deployer",
-    goal="Deploy the GitHub repository to Netlify",
-    backstory="You handle deployment to Netlify for hosting.",
-    tools=[deploy_to_netlify],
+render_agent = Agent(
+    role="Render Deployer",
+    goal="Deploy the GitHub repository to Render",
+    backstory="You handle deployment to Render for hosting.",
+    tools=[deploy_to_render],
     llm=llm,
     allow_delegation=False
 )

@@ -1,0 +1,398 @@
+2025-10-30 10:08:27 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 10:08:27 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-2a04f4
+2025-10-30 10:08:27 - agent_render_deployer - INFO - ⏳ Waiting 2 minutes for GitHub repository to be fully ready...
+2025-10-30 10:08:27 - agent_render_deployer - ERROR - Error deploying to Render: local variable 'time' referenced before assignment
+2025-10-30 10:12:28 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 10:12:28 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-cf775c
+2025-10-30 10:12:28 - agent_render_deployer - INFO - ⏳ Waiting 2 minutes for GitHub repository to be fully ready...
+2025-10-30 10:14:28 - agent_render_deployer - INFO - ✅ 2-minute wait completed, proceeding with Render deployment
+2025-10-30 10:14:28 - agent_render_deployer - INFO - Generated service name: coding-sim-app-eb994fe2
+2025-10-30 10:14:28 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 10:14:28 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-cf775c
+2025-10-30 10:14:28 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-cf775c
+2025-10-30 10:14:28 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-cf775c
+2025-10-30 10:14:29 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-cf775c
+2025-10-30 10:14:29 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 10:14:29 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 10:14:29 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 10:14:29 - agent_render_deployer - INFO -    Service name: coding-sim-app-eb994fe2
+2025-10-30 10:14:29 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-cf775c
+2025-10-30 10:14:29 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 10:14:29 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 10:14:29 - agent_render_deployer - INFO -    Publish path: ./
+2025-10-30 10:14:29 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-cf775c
+2025-10-30 10:14:29 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 10:14:30 - agent_render_deployer - ERROR - ❌ Render deployment failed: 400 - {"message":"ownerID is a required field"}
+
+2025-10-30 10:20:21 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 10:20:21 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-785091
+2025-10-30 10:20:21 - agent_render_deployer - INFO - ⏳ Waiting 2 minutes for GitHub repository to be fully ready...
+2025-10-30 10:22:21 - agent_render_deployer - INFO - ✅ 2-minute wait completed, proceeding with Render deployment
+2025-10-30 10:22:21 - agent_render_deployer - INFO - Generated service name: coding-sim-app-e1e87b24
+2025-10-30 10:22:21 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 10:22:21 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-785091
+2025-10-30 10:22:21 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-785091
+2025-10-30 10:22:21 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-785091
+2025-10-30 10:22:22 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-785091
+2025-10-30 10:22:22 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 10:22:22 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 10:22:22 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 10:22:23 - agent_render_deployer - INFO - ✅ Found Render owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 10:22:23 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 10:22:23 - agent_render_deployer - INFO -    Service name: coding-sim-app-e1e87b24
+2025-10-30 10:22:23 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-785091
+2025-10-30 10:22:23 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 10:22:23 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 10:22:23 - agent_render_deployer - INFO -    Publish path: ./
+2025-10-30 10:22:23 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-785091
+2025-10-30 10:22:23 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 10:22:23 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 10:22:26 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-e1e87b24.onrender.com
+2025-10-30 10:22:26 - agent_render_deployer - INFO - ✅ Service ID: srv-d41eu1odl3ps73dcaer0
+2025-10-30 10:46:40 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 10:46:40 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-301d54
+2025-10-30 10:46:40 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 10:47:10 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 10:47:10 - agent_render_deployer - INFO - Generated service name: coding-sim-app-87804277
+2025-10-30 10:47:10 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 10:47:10 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-301d54
+2025-10-30 10:47:10 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-301d54
+2025-10-30 10:47:10 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-301d54
+2025-10-30 10:47:11 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-301d54
+2025-10-30 10:47:11 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 10:47:11 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 10:47:11 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 10:47:12 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 10:47:12 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 10:47:12 - agent_render_deployer - INFO -    Service name: coding-sim-app-87804277
+2025-10-30 10:47:12 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-301d54
+2025-10-30 10:47:12 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 10:47:12 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 10:47:12 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 10:47:12 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-301d54
+2025-10-30 10:47:12 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 10:47:12 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 10:47:16 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-87804277.onrender.com
+2025-10-30 10:47:16 - agent_render_deployer - INFO - ✅ Service ID: srv-d41f9m24d50c73enk5l0
+2025-10-30 11:02:51 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 11:02:51 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-3ec636
+2025-10-30 11:02:51 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 11:03:21 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 11:03:21 - agent_render_deployer - INFO - Generated service name: coding-sim-app-3a7c4b5d
+2025-10-30 11:03:21 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 11:03:21 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-3ec636
+2025-10-30 11:03:21 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-3ec636
+2025-10-30 11:03:21 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-3ec636
+2025-10-30 11:03:22 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-3ec636
+2025-10-30 11:03:22 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 11:03:22 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 11:03:22 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 11:03:22 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 11:03:22 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 11:03:22 - agent_render_deployer - INFO -    Service name: coding-sim-app-3a7c4b5d
+2025-10-30 11:03:22 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-3ec636
+2025-10-30 11:03:22 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 11:03:22 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 11:03:22 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 11:03:22 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-3ec636
+2025-10-30 11:03:22 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 11:03:22 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 11:03:27 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-3a7c4b5d.onrender.com
+2025-10-30 11:03:27 - agent_render_deployer - INFO - ✅ Service ID: srv-d41fh924d50c73enqjhg
+2025-10-30 11:19:31 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 11:19:31 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-7d80bc
+2025-10-30 11:19:31 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 11:20:01 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 11:20:01 - agent_render_deployer - INFO - Generated service name: coding-sim-app-9c338025
+2025-10-30 11:20:01 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 11:20:01 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-7d80bc
+2025-10-30 11:20:01 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-7d80bc
+2025-10-30 11:20:01 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-7d80bc
+2025-10-30 11:20:16 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-7d80bc
+2025-10-30 11:20:16 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 11:20:16 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 11:20:16 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 12:34:21 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 12:34:21 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-f43893
+2025-10-30 12:34:21 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 12:34:51 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 12:34:51 - agent_render_deployer - INFO - Generated service name: coding-sim-app-4f22bc28
+2025-10-30 12:34:51 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 12:34:51 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-f43893
+2025-10-30 12:34:51 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-f43893
+2025-10-30 12:34:51 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-f43893
+2025-10-30 12:34:52 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-f43893
+2025-10-30 12:34:52 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 12:34:52 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 12:34:52 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 12:34:52 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 12:34:52 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 12:34:52 - agent_render_deployer - INFO -    Service name: coding-sim-app-4f22bc28
+2025-10-30 12:34:52 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-f43893
+2025-10-30 12:34:52 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 12:34:52 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 12:34:52 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 12:34:52 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-f43893
+2025-10-30 12:34:52 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 12:34:52 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 12:34:56 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-4f22bc28.onrender.com
+2025-10-30 12:34:56 - agent_render_deployer - INFO - ✅ Service ID: srv-d41gs5f5r7bs739fp5i0
+2025-10-30 12:43:00 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 12:43:00 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-d92b52
+2025-10-30 12:43:00 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 12:43:30 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 12:43:30 - agent_render_deployer - INFO - Generated service name: coding-sim-app-4147e6bf
+2025-10-30 12:43:30 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 12:43:30 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-d92b52
+2025-10-30 12:43:30 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-d92b52
+2025-10-30 12:43:30 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-d92b52
+2025-10-30 12:43:31 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-d92b52
+2025-10-30 12:43:31 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 12:43:31 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 12:43:31 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 12:43:32 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 12:43:32 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 12:43:32 - agent_render_deployer - INFO -    Service name: coding-sim-app-4147e6bf
+2025-10-30 12:43:32 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-d92b52
+2025-10-30 12:43:32 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 12:43:32 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 12:43:32 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 12:43:32 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-d92b52
+2025-10-30 12:43:32 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 12:43:32 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 12:43:36 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-4147e6bf.onrender.com
+2025-10-30 12:43:36 - agent_render_deployer - INFO - ✅ Service ID: srv-d41h07a4d50c73ep1gcg
+2025-10-30 12:49:56 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 12:49:56 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-307027
+2025-10-30 12:49:56 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 12:50:26 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 12:50:26 - agent_render_deployer - INFO - Generated service name: coding-sim-app-be4dbb41
+2025-10-30 12:50:26 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 12:50:26 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-307027
+2025-10-30 12:50:26 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-307027
+2025-10-30 12:50:26 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-307027
+2025-10-30 12:50:27 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-307027
+2025-10-30 12:50:27 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 12:50:27 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 12:50:27 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 12:50:27 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 12:50:27 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 12:50:27 - agent_render_deployer - INFO -    Service name: coding-sim-app-be4dbb41
+2025-10-30 12:50:27 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-307027
+2025-10-30 12:50:27 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 12:50:27 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 12:50:27 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 12:50:27 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-307027
+2025-10-30 12:50:27 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 12:50:27 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 12:50:33 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-be4dbb41.onrender.com
+2025-10-30 12:50:33 - agent_render_deployer - INFO - ✅ Service ID: srv-d41h3f0dl3ps73de216g
+2025-10-30 12:52:17 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 12:52:17 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-594760
+2025-10-30 12:52:17 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 12:52:47 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 12:52:47 - agent_render_deployer - INFO - Generated service name: coding-sim-app-2f72354f
+2025-10-30 12:52:47 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 12:52:47 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-594760
+2025-10-30 12:52:47 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-594760
+2025-10-30 12:52:47 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-594760
+2025-10-30 12:52:48 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-594760
+2025-10-30 12:52:48 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 12:52:48 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 12:52:48 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 12:52:49 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 12:52:49 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 12:52:49 - agent_render_deployer - INFO -    Service name: coding-sim-app-2f72354f
+2025-10-30 12:52:49 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-594760
+2025-10-30 12:52:49 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 12:52:49 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 12:52:49 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 12:52:49 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-594760
+2025-10-30 12:52:49 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 12:52:49 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 12:52:52 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-2f72354f.onrender.com
+2025-10-30 12:52:52 - agent_render_deployer - INFO - ✅ Service ID: srv-d41h4ibipnbc73fcoemg
+2025-10-30 12:55:12 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 12:55:12 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-90c086
+2025-10-30 12:55:12 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 12:55:43 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 12:55:43 - agent_render_deployer - INFO - Generated service name: coding-sim-app-b7ff0559
+2025-10-30 12:55:43 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 12:55:43 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-90c086
+2025-10-30 12:55:43 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-90c086
+2025-10-30 12:55:43 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-90c086
+2025-10-30 12:55:44 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-90c086
+2025-10-30 12:55:44 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 12:55:44 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 12:55:44 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 12:55:44 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 12:55:44 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 12:55:44 - agent_render_deployer - INFO -    Service name: coding-sim-app-b7ff0559
+2025-10-30 12:55:44 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-90c086
+2025-10-30 12:55:44 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 12:55:44 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 12:55:44 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 12:55:44 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-90c086
+2025-10-30 12:55:44 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 12:55:44 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 12:55:49 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-b7ff0559.onrender.com
+2025-10-30 12:55:49 - agent_render_deployer - INFO - ✅ Service ID: srv-d41h5un5r7bs739g0sig
+2025-10-30 13:01:00 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 13:01:00 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-d7e035
+2025-10-30 13:01:00 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 13:01:30 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 13:01:30 - agent_render_deployer - INFO - Generated service name: coding-sim-app-cc1c3d23
+2025-10-30 13:01:30 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 13:01:30 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-d7e035
+2025-10-30 13:01:30 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-d7e035
+2025-10-30 13:01:30 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-d7e035
+2025-10-30 13:01:31 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-d7e035
+2025-10-30 13:01:31 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 13:01:31 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 13:01:31 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 13:01:31 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 13:01:31 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 13:01:31 - agent_render_deployer - INFO -    Service name: coding-sim-app-cc1c3d23
+2025-10-30 13:01:31 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-d7e035
+2025-10-30 13:01:31 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 13:01:31 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 13:01:31 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 13:01:31 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-d7e035
+2025-10-30 13:01:31 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 13:01:31 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 13:01:38 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-cc1c3d23.onrender.com
+2025-10-30 13:01:38 - agent_render_deployer - INFO - ✅ Service ID: srv-d41h8lbipnbc73fcrgtg
+2025-10-30 13:18:13 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 13:18:13 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-ac8520
+2025-10-30 13:18:13 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 13:18:43 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 13:18:43 - agent_render_deployer - INFO - Generated service name: coding-sim-app-07c3f4a1
+2025-10-30 13:18:43 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 13:18:43 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-ac8520
+2025-10-30 13:18:43 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-ac8520
+2025-10-30 13:18:43 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-ac8520
+2025-10-30 13:18:44 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-ac8520
+2025-10-30 13:18:44 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 13:18:44 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 13:18:44 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 13:18:45 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 13:18:45 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 13:18:45 - agent_render_deployer - INFO -    Service name: coding-sim-app-07c3f4a1
+2025-10-30 13:18:45 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-ac8520
+2025-10-30 13:18:45 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 13:18:45 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 13:18:45 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 13:18:45 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-ac8520
+2025-10-30 13:18:45 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 13:18:45 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 13:18:49 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-07c3f4a1.onrender.com
+2025-10-30 13:18:49 - agent_render_deployer - INFO - ✅ Service ID: srv-d41hgnn5r7bs739g9p7g
+2025-10-30 13:46:27 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 13:46:27 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-eb9502
+2025-10-30 13:46:27 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 13:46:57 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 13:46:57 - agent_render_deployer - INFO - Generated service name: coding-sim-app-0496daab
+2025-10-30 13:46:57 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 13:46:57 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-eb9502
+2025-10-30 13:46:57 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-eb9502
+2025-10-30 13:46:57 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-eb9502
+2025-10-30 13:52:18 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 13:52:18 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-ce0189
+2025-10-30 13:52:18 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 13:52:48 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 13:52:48 - agent_render_deployer - INFO - Generated service name: coding-sim-app-2323a904
+2025-10-30 13:52:48 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 13:52:48 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-ce0189
+2025-10-30 13:52:48 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-ce0189
+2025-10-30 13:52:48 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-ce0189
+2025-10-30 13:52:54 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-ce0189
+2025-10-30 13:52:54 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 13:52:54 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 13:52:54 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 13:53:05 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 13:53:05 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 13:53:05 - agent_render_deployer - INFO -    Service name: coding-sim-app-2323a904
+2025-10-30 13:53:05 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-ce0189
+2025-10-30 13:53:05 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 13:53:05 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 13:53:05 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 13:53:05 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-ce0189
+2025-10-30 13:53:05 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 13:53:05 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 13:53:10 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-2323a904.onrender.com
+2025-10-30 13:53:10 - agent_render_deployer - INFO - ✅ Service ID: srv-d41i0qodl3ps73depi1g
+2025-10-30 15:25:32 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 15:25:32 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-8d401a
+2025-10-30 15:25:32 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 15:26:02 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 15:26:02 - agent_render_deployer - INFO - Generated service name: coding-sim-app-b1e543ff
+2025-10-30 15:26:02 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 15:26:02 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-8d401a
+2025-10-30 15:26:02 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-8d401a
+2025-10-30 15:26:02 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-8d401a
+2025-10-30 15:26:03 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-8d401a
+2025-10-30 15:26:03 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 15:26:03 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 15:26:03 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 15:26:03 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 15:26:03 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 15:26:03 - agent_render_deployer - INFO -    Service name: coding-sim-app-b1e543ff
+2025-10-30 15:26:03 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-8d401a
+2025-10-30 15:26:03 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 15:26:03 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 15:26:03 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 15:26:03 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-8d401a
+2025-10-30 15:26:03 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 15:26:03 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 15:26:08 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-b1e543ff.onrender.com
+2025-10-30 15:26:08 - agent_render_deployer - INFO - ✅ Service ID: srv-d41jcd3ipnbc73fein30
+2025-10-30 16:21:13 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 16:21:13 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-4064a8
+2025-10-30 16:21:13 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 16:21:43 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 16:21:43 - agent_render_deployer - INFO - Generated service name: coding-sim-app-a7bb41ca
+2025-10-30 16:21:43 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 16:21:43 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-4064a8
+2025-10-30 16:21:43 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-4064a8
+2025-10-30 16:21:43 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-4064a8
+2025-10-30 16:21:45 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-4064a8
+2025-10-30 16:21:45 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 16:21:45 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 16:21:45 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 16:21:45 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 16:21:45 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 16:21:45 - agent_render_deployer - INFO -    Service name: coding-sim-app-a7bb41ca
+2025-10-30 16:21:45 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-4064a8
+2025-10-30 16:21:45 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 16:21:45 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 16:21:45 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 16:21:45 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-4064a8
+2025-10-30 16:21:45 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 16:21:45 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 16:21:50 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-a7bb41ca.onrender.com
+2025-10-30 16:21:50 - agent_render_deployer - INFO - ✅ Service ID: srv-d41k6gje5dus73ddek0g
+2025-10-30 20:54:21 - agent_render_deployer - INFO - Calling function: deploy_to_render
+2025-10-30 20:54:21 - agent_render_deployer - INFO - Starting Render deployment for: https://github.com/Franz-kingstein/coding-sim-flask-app-760bd6
+2025-10-30 20:54:21 - agent_render_deployer - INFO - ⏳ Waiting 30 seconds for GitHub repository to be fully ready...
+2025-10-30 20:54:51 - agent_render_deployer - INFO - ✅ 30-second wait completed, proceeding with Render deployment
+2025-10-30 20:54:51 - agent_render_deployer - INFO - Generated service name: coding-sim-app-196901cb
+2025-10-30 20:54:51 - agent_render_deployer - INFO - Repository owner: Franz-kingstein
+2025-10-30 20:54:51 - agent_render_deployer - INFO - Repository name: coding-sim-flask-app-760bd6
+2025-10-30 20:54:51 - agent_render_deployer - INFO - Full repository path: Franz-kingstein/coding-sim-flask-app-760bd6
+2025-10-30 20:54:51 - agent_render_deployer - INFO - Verifying repository exists: https://api.github.com/repos/Franz-kingstein/coding-sim-flask-app-760bd6
+2025-10-30 20:54:52 - agent_render_deployer - INFO - ✅ Repository verified: Franz-kingstein/coding-sim-flask-app-760bd6
+2025-10-30 20:54:52 - agent_render_deployer - INFO - ✅ Repository is public: True
+2025-10-30 20:54:52 - agent_render_deployer - INFO - ✅ Default branch: main
+2025-10-30 20:54:52 - agent_render_deployer - INFO - 🔑 Getting Render account owner ID...
+2025-10-30 20:54:53 - agent_render_deployer - INFO - ✅ Using Render owner ID: tea-csp9p2rgbbvc73eufqtg (match: first-owner)
+2025-10-30 20:54:53 - agent_render_deployer - INFO - 📋 Render deployment configuration:
+2025-10-30 20:54:53 - agent_render_deployer - INFO -    Service name: coding-sim-app-196901cb
+2025-10-30 20:54:53 - agent_render_deployer - INFO -    Repository: Franz-kingstein/coding-sim-flask-app-760bd6
+2025-10-30 20:54:53 - agent_render_deployer - INFO -    Branch: main
+2025-10-30 20:54:53 - agent_render_deployer - INFO -    Build command: echo 'Building static site...'
+2025-10-30 20:54:53 - agent_render_deployer - INFO -    Publish path: public
+2025-10-30 20:54:53 - agent_render_deployer - INFO -    Repository URL: https://github.com/Franz-kingstein/coding-sim-flask-app-760bd6
+2025-10-30 20:54:53 - agent_render_deployer - INFO -    Owner ID: tea-csp9p2rgbbvc73eufqtg
+2025-10-30 20:54:53 - agent_render_deployer - INFO - Making API request to Render
+2025-10-30 20:55:00 - agent_render_deployer - INFO - ✅ Render service created successfully: https://coding-sim-app-196901cb.onrender.com
+2025-10-30 20:55:00 - agent_render_deployer - INFO - ✅ Service ID: srv-d41o6hali9vc73bq5f2g

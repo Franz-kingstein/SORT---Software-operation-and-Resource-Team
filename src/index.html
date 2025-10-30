@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>S.O.R.T — AI-Powered App Deployer</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+        }
+        .box {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 25px;
+            border: 3px solid #0f0;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #0f0;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            background: #111;
+            color: white;
+            border: 1px solid #0f0;
+            padding: 12px;
+            font-family: inherit;
+            margin: 15px 0;
+        }
+        button {
+            background: #0f0;
+            color: black;
+            border: none;
+            padding: 12px 24px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #0a0;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>⚡ S.O.R.T</h1>
+        <p>Describe the Flask app you want to auto-generate and deploy:</p>
+        <textarea id="prompt" placeholder="e.g., A Flask app that shows the current server time"></textarea>
+        <button onclick="run()">🚀 Generate & Deploy</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        async function run() {
+            const prompt = document.getElementById('prompt').value.trim();
+            const btn = document.querySelector('button');
+            const out = document.getElementById('output');
+
+            if (!prompt) {
+                alert('Please enter a description.');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = '⏳ Working...';
+            out.innerHTML = '';
+
+            try {
+                const res = await fetch('/generate', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ prompt })
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    out.textContent = data.result;
+                } else {
+                    out.innerHTML = `<span style="color:red">❌ ${data.error}</span>`;
+                }
+            } catch (err) {
+                out.innerHTML = `<span style="color:red">❌ Network error: ${err.message}</span>`;
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🚀 Generate & Deploy';
+            }
+        }
+    </script>
+</body>
+</html>

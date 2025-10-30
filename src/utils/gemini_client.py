@@ -16,7 +16,7 @@ def get_gemini_response(prompt):
         gemini_logger.info("Configuring Gemini API")
         genai.configure(api_key=api_key)
         
-        model = genai.GenerativeModel('gemma-3-1b-it')
+        model = genai.GenerativeModel('gemini-2.5-flash')
         gemini_logger.info("Sending prompt to Gemini")
         
         response = model.generate_content(prompt)
